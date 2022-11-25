@@ -1,0 +1,23 @@
+package com.ttt.uicomponents;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uiutils.UiElementReusables;
+
+public final class OxdFormButtonComponent extends BaseComponent{
+
+	private static final String PARENT_ELEMENT_LOCATOR_STR = ".oxd-form-actions>.oxd-button[type='%s']";
+	WebElement parentElement = null;
+	
+	public OxdFormButtonComponent(String type) {
+		super(UiDriverManager.getDriver());
+		parentElement = getParentElement(By.cssSelector(String.format(PARENT_ELEMENT_LOCATOR_STR,type)));
+	}
+	
+	public void clickFormButton() {
+		UiElementReusables.clickElement(parentElement);
+	}
+	
+}

@@ -1,0 +1,77 @@
+package com.ttt.uimodules;
+
+import org.apache.logging.log4j.message.ReusableMessage;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.orangehrmpages.AdminPage;
+import com.ttt.uicomponents.OxdAutoCompleteWrapperComponent;
+import com.ttt.uicomponents.OxdFormButtonComponent;
+import com.ttt.uicomponents.OxdInputComponent;
+import com.ttt.uicomponents.OxdSelectWrapperComponent;
+import com.ttt.uiutils.UiWaitHandler;
+
+public final class AddUserUiModule extends BaseModule{
+
+	private static final String COMPONENTS_UNIQUE_LOCATOR_STR = "//label[text()='%s']/ancestor::div[contains(@class,'oxd-input-group')]";
+
+	public AddUserUiModule() {
+		super(UiDriverManager.getDriver());
+	}
+
+	private String formatCompntUniqueLocator(String value) {
+		return String.format(COMPONENTS_UNIQUE_LOCATOR_STR, value);
+	}
+
+	public AddUserUiModule selectUserRole(String value) {
+		new OxdSelectWrapperComponent(formatCompntUniqueLocator("User Role"))
+		.selectOptionWithValueText(value);
+		return this;
+	}
+
+	public AddUserUiModule enterEmployeeName(String text) {
+       new OxdAutoCompleteWrapperComponent(formatCompntUniqueLocator("Employee Name"))
+       .enterAutoCompleteInput(text)
+       .selectAutoCompletedText(text);
+       return this;
+	}
+
+	public AddUserUiModule selectStatus(String value) {
+		new OxdSelectWrapperComponent(formatCompntUniqueLocator("Status"))
+		.selectOptionWithValueText(value);
+		return this;
+	}
+
+	public AddUserUiModule enterUserName(String text) {
+       new OxdInputComponent(formatCompntUniqueLocator("Username"))
+       .autoCompleteOffEnterText(text);
+       return this;
+	}
+
+	public AddUserUiModule enterPassword(String password) {
+		 new OxdInputComponent(formatCompntUniqueLocator("Password"))
+	       .autoCompleteOffEnterText(password);
+		 return this;
+	}
+
+	public AddUserUiModule confirmPassword(String password) {
+		new OxdInputComponent(formatCompntUniqueLocator("Confirm Password"))
+	       .autoCompleteOffEnterText(password);
+		return this;
+	}
+	
+	public AddUserUiModule waitBeforeSavingEmployeeDetails() {
+		UiWaitHandler.unInteruptedSleep(3);
+		return this;
+	}
+	
+	public AdminPage saveEmployeeDetails() {
+		new OxdFormButtonComponent("submit").clickFormButton();
+		return new AdminPage();
+	}
+	
+	public AddUserUiModule cancelEmployeeDetails() {
+		new OxdFormButtonComponent("button").clickFormButton();
+		return this;
+	}
+
+}

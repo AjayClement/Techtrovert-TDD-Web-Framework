@@ -1,0 +1,5 @@
+package com.ttt.uicomponents;
+
+public final class OxdAutoCompleteWrapperComponent extends BaseComponent{
+
+}

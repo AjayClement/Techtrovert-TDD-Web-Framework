@@ -1,0 +1,11 @@
+package com.ttt.uicomponents;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public class OxdSelectWrapperComponent {
+
+	
+	public OxdSelectWrapperComponent() {
+		super(UiDriverManager.getDriver());
+	}
+}

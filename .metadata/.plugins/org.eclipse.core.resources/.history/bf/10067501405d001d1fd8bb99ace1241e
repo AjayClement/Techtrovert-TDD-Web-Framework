@@ -1,0 +1,49 @@
+package com.ttt.uicomponents;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uiutils.UiElementReusables;
+import com.ttt.uiutils.UiWaitHandler;
+
+public final class OxdAutoCompleteWrapperComponent extends BaseComponent{
+
+	private WebElement parentElement = null;
+	private By autoCompleteInputLocator = By.cssSelector(".oxd-autocomplete-wrapper input");
+	private By autoCompleteDropDownLocator =  By.cssSelector(".oxd-autocomplete-dropdown");
+	private static final String OPTION_TEXT_VALUE_LOCATOR = "//span[text()='%s']";
+
+	public OxdAutoCompleteWrapperComponent() {
+		super(UiDriverManager.getDriver());
+		parentElement= getParentElement(By.className("oxd-autocomplete-wrapper"));
+	}
+
+	public OxdAutoCompleteWrapperComponent(String parentUniqueLocator) {
+		super(UiDriverManager.getDriver());
+		parentElement = getParentElement(
+				By.xpath(parentUniqueLocator+"oxd-autocomplete-wrapper")); 
+	}
+
+	public void enterAutoCompleteInput(String text) {
+		WebElement ele = UiWaitHandler.waitUntilElementVisible(
+				parentElement.findElement(autoCompleteInputLocator),true);
+		UiElementReusables.slowAutoCompleteSendKeys(ele, text);
+	}
+
+	public void selectAutoCompletedText(String text) {
+		UiElementReusables.clickElement(getAutoCompletedOption(text));
+	}
+
+	public WebElement getAutoCompletedOption(String text) {
+		return UiWaitHandler.waitUntilClickable(parentElement
+				.findElement(autoCompleteDropDownLocator)
+				.findElement(By.xpath(
+						String.format(OPTION_TEXT_VALUE_LOCATOR, text))),true);
+	}
+
+
+
+
+
+}

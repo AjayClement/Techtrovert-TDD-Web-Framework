@@ -1,0 +1,26 @@
+package com.ttt.orangehrmpages;
+
+import org.openqa.selenium.By;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uimodules.AddUserUiModule;
+import com.ttt.uiutils.UiElementReusables;
+
+public final class AdminPage extends BasePage{
+    
+
+	private final By addUserLoc =  By.cssSelector("i.bi-plus");
+	private static final String COMPONENTS_UNIQUE_LOCATOR_STR = "//label[text()='%s']/ancestor::div[contains(@class,'oxd-input-group')]";
+	
+	public AdminPage() {
+	   super(UiDriverManager.getDriver());
+	}
+	
+	
+	public AddUserUiModule clickAddUser() {
+		UiElementReusables.clickElementBy(addUserLoc);
+		return new AddUserUiModule();
+	}
+	
+	
+}

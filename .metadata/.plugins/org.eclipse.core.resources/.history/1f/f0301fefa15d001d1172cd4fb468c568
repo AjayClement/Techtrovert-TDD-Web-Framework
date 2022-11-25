@@ -1,0 +1,47 @@
+package com.ttt.orangehrmtests;
+
+
+
+
+import org.assertj.core.api.Assertions;
+import org.testng.annotations.Test;
+
+import com.ttt.commonutils.PageNameContext;
+import com.ttt.enums.Context;
+import com.ttt.enums.PageName;
+import com.ttt.orangehrmpages.AdminPage;
+import com.ttt.orangehrmpages.CommonPage;
+import com.ttt.orangehrmpages.LoginPage;
+
+
+public final class OHRMLoginLogoutTest extends BaseTest{
+	
+	private PageNameContext pageNameContext = null;
+	
+	private OHRMLoginLogoutTest() {
+		
+	}
+
+
+	@Test
+	public void loginLogOut() {
+		Assertions.assertThat(
+				new LoginPage().login("Admin", "admin123")
+				.logout().checkLoginTitle()
+				).isTrue();	
+	}
+
+	@Test
+	public void addUser() {
+		pageNameContext = new PageNameContext();
+		new LoginPage().login("Admin", "admin123");
+		((AdminPage)new CommonPage()
+				 .navigateUsingLeftnavBar(PageName.ADMIN))
+		         .clickAddUser()
+		         .enterAndSaveEmployeeDetails("ESS", "Aaliyah Haq", "Enabled"
+				                   , "iamrobot", "robot123");
+	}
+
+
+
+}

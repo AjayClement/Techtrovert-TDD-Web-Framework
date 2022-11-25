@@ -1,0 +1,23 @@
+package com.ttt.orangehrmpages;
+
+import org.openqa.selenium.By;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uimodules.AddUserUiModule;
+import com.ttt.uiutils.UiElementReusables;
+
+public final class AdminPage extends BasePage{
+    
+	public AdminPage() {
+	   super(UiDriverManager.getDriver());
+	}
+	
+	By addUserLoc =  By.cssSelector("i.bi-plus");
+	
+	public AddUserUiModule clickAddUser() {
+		UiElementReusables.clickElementBy(addUserLoc);
+		return new AddUserUiModule();
+	}
+	
+	
+}

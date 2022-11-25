@@ -1,0 +1,21 @@
+package com.ttt.orangehrmpages;
+
+import org.openqa.selenium.By;
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uimodules.HeaderModule;
+import com.ttt.uiutils.UiElementReusables;
+
+public final class CommonPage extends BasePage{
+	
+	private HeaderModule headerModule;
+	
+	public CommonPage() {
+		super(UiDriverManager.getDriver());
+		headerModule = new HeaderModule();
+	}
+	
+	public LoginPage logout() {
+		return headerModule.clcikUserAccountDrpDwn().clickLogout();
+	}
+	
+}

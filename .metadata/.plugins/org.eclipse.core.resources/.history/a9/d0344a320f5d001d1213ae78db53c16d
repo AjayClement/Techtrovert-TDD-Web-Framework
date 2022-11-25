@@ -1,0 +1,13 @@
+package com.ttt.uimodules;
+
+import org.openqa.selenium.WebDriver;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public final class AddUserUiModule extends BaseModule{
+   
+	public AddUserUiModule(WebDriver driver) {
+		super(driver);
+	}
+	
+}

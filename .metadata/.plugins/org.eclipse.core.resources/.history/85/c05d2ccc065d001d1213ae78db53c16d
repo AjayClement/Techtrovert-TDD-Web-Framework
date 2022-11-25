@@ -1,0 +1,13 @@
+package com.ttt.uimodules;
+
+import org.openqa.selenium.WebDriver;
+
+import com.ttt.orangehrmpages.BasePage;
+
+public final class BaseModule extends BasePage{
+
+	public BaseModule(WebDriver driver) {
+		super(driver);
+	}
+
+}

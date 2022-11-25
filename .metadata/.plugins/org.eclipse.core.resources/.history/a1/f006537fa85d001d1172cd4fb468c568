@@ -1,0 +1,62 @@
+package com.ttt.uicomponents;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uiutils.UiElementReusables;
+import com.ttt.uiutils.UiWaitHandler;
+
+public final class OxdAutoCompleteWrapperComponent extends BaseComponent{
+
+	private WebElement parentElement = null;
+	private By autoCompleteInputLocator = By.cssSelector(".oxd-autocomplete-wrapper input");
+	private By autoCompleteDropDownLocator =  By.xpath("//div[starts-with(@class,'oxd-autocomplete-dropdown')]");
+	private static final String OPTION_TEXT_VALUE_LOCATOR = "//div/span[text()='%s']";
+
+	public OxdAutoCompleteWrapperComponent() {
+		super(UiDriverManager.getDriver());
+		parentElement= getParentElement(By.className("oxd-autocomplete-wrapper"));
+	}
+
+	public OxdAutoCompleteWrapperComponent(String parentUniqueLocator) {
+		super(UiDriverManager.getDriver());
+		parentElement = getParentElement(
+				By.xpath(parentUniqueLocator+"//div[@class='oxd-autocomplete-wrapper']")); 
+	}
+
+	public OxdAutoCompleteWrapperComponent enterAutoCompleteInput(String text) {
+		WebElement ele = UiWaitHandler.waitUntilElementVisible(
+				parentElement.findElement(autoCompleteInputLocator),true);
+		UiElementReusables.slowAutoCompleteSendKeys(ele, text);
+		return this;
+	}
+
+	public void selectAutoCompletedText(String text) {
+		UiElementReusables.clickElement(getAutoCompletedOption(text));
+	}
+
+	public WebElement getAutoCompletedOption(String text) {
+		return UiWaitHandler.waitUntilElementVisible(parentElement
+				.findElement(autoCompleteDropDownLocator)
+				.findElement(By.xpath(
+						String.format(OPTION_TEXT_VALUE_LOCATOR, text))),true);
+	}
+	
+	public List<WebElement> getAutoCompletedOptions(String text) {
+		return UiWaitHandler.waitUntilElementsVisible(
+				  UiWaitHandler.waitUntilElementVisible(
+						 parentElement.findElement(
+								 autoCompleteDropDownLocator), false)
+     		   .findElement(By.xpath(
+						String.format(OPTION_TEXT_VALUE_LOCATOR, text))
+     				   ),true);
+	}
+
+
+
+
+
+}

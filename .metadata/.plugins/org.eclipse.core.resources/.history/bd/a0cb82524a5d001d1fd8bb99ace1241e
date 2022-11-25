@@ -1,0 +1,42 @@
+package com.ttt.uimodules;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uicomponents.OxdSelectWrapperComponent;
+
+public final class AddUserUiModule extends BaseModule{
+	
+	private static final String COMPONENTS_UNIQUE_LOCATOR_STR = "//label[text()='%s']/ancestor::div[contains(@class,'oxd-input-group')]";
+	
+	public AddUserUiModule() {
+		super(UiDriverManager.getDriver());
+	}
+	
+	private String formatCompntUniQueLocator(String value) {
+		return String.format(COMPONENTS_UNIQUE_LOCATOR_STR, value);
+	}
+	
+	public void selectUserRole(String value) {
+		new OxdSelectWrapperComponent(formatCompntUniQueLocator("User Role")).selectOptionWithValueText(value);
+	}
+	
+	public void enterEmployeeName() {
+		
+	}
+	
+	public void selectStatus() {
+		
+	}
+	
+	public void enterUserName() {
+		
+	}
+	
+	public void enterPassword() {
+		
+	}
+	
+	public void confirmPassword() {
+		
+	}
+	
+}

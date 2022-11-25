@@ -1,0 +1,35 @@
+package com.ttt.uimodules;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.orangehrmpages.LoginPage;
+import com.ttt.uiutils.UiElementReusables;
+
+public final class HeaderUiModule extends BaseModule{
+
+	private final By headerNavBar = By.className("oxd-topbar-header");
+	private final By userAccountDrpDwn =By.className("oxd-userdropdown-tab");
+	private final By logOutButton = By.xpath("//a[text()='Logout']");	
+	
+	
+	public HeaderUiModule() {
+		super(UiDriverManager.getDriver());
+	}
+	
+	private WebElement getHeaderModuleParent() {
+		return UiElementReusables.getElementBy(headerNavBar);
+	}
+	
+	public HeaderUiModule clcikUserAccountDrpDwn() {
+		UiElementReusables.clickElementBy(userAccountDrpDwn);
+		return this;
+	}
+	
+	public LoginPage clickLogout() {
+		UiElementReusables.clickElementBy(logOutButton);
+		return new LoginPage();
+	}
+	
+}

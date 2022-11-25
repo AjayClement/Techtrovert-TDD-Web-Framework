@@ -1,0 +1,50 @@
+package com.ttt.uimodules;
+
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.uicomponents.OxdAutoCompleteWrapperComponent;
+import com.ttt.uicomponents.OxdInputComponent;
+import com.ttt.uicomponents.OxdSelectWrapperComponent;
+
+public final class AddUserUiModule extends BaseModule{
+
+	private static final String COMPONENTS_UNIQUE_LOCATOR_STR = "//label[text()='%s']/ancestor::div[contains(@class,'oxd-input-group')]";
+
+	public AddUserUiModule() {
+		super(UiDriverManager.getDriver());
+	}
+
+	private String formatCompntUniQueLocator(String value) {
+		return String.format(COMPONENTS_UNIQUE_LOCATOR_STR, value);
+	}
+
+	public void selectUserRole(String value) {
+		new OxdSelectWrapperComponent(formatCompntUniQueLocator("User Role"))
+		.selectOptionWithValueText(value);
+	}
+
+	public void enterEmployeeName(String text) {
+       new OxdAutoCompleteWrapperComponent(formatCompntUniQueLocator("Employee Name"))
+       .enterAutoCompleteInput(text)
+       .selectAutoCompletedText(text);
+       
+	}
+
+	public void selectStatus(String value) {
+		new OxdSelectWrapperComponent(formatCompntUniQueLocator("Status"))
+		.selectOptionWithValueText(value);
+	}
+
+	public void enterUserName(String text) {
+       new OxdInputComponent(formatCompntUniQueLocator("Username"))
+       .autoCompleteOffEnterText(text);
+	}
+
+	public void enterPassword() {
+
+	}
+
+	public void confirmPassword() {
+
+	}
+
+}

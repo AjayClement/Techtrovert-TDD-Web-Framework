@@ -1,0 +1,64 @@
+package com.ttt.driverutils;
+
+import java.util.Objects;
+import java.util.Optional;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v106.emulation.Emulation;
+
+import com.ttt.enums.BrowserType;
+import com.ttt.runconstants.RunConstants;
+import com.ttt.uiutils.UiWaitHandler;
+
+public class UiDriver {
+
+	private UiDriver(){
+		
+	}
+	
+	
+	   
+	public static void initializeDriver(BrowserType browser) {
+		
+		
+		switch(browser) {
+		case CHROME:
+		  System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+RunConstants.getChromeDriverPath());
+		  
+		     if(Objects.isNull(DriverManager.getDriver())) {
+		    	 DriverManager.setDriver(new ChromeDriver());
+		    	 DriverManager.getDriver().manage().window().maximize();
+		    	 DevTools devTools = ((HasDevTools) DriverManager.getDriver()).getDevTools();
+		    	 devTools.createSession();
+		    	 devTools.send(Emulation.setGeolocationOverride(Optional.of((Number)13.0067686),
+		    	                                                Optional.of((Number)80.1136872),
+		    	                                                Optional.of((Number)1)));
+		    
+		    	   
+		     }
+		     
+		  
+		  break;
+		case SAFARI:
+		case FIREFOX:
+		case EDGE:
+		case IE:
+			break;
+		default:
+			break;
+		}
+		UiWaitHandler.pageWait();
+	}
+	
+	public static void quitDriver() {
+		if(Objects.nonNull(DriverManager.getDriver())) {
+			DriverManager.getDriver().quit();
+			DriverManager.unloadDriver();
+			DriverManager.setDriver(null);
+		}
+	}
+	
+	
+}

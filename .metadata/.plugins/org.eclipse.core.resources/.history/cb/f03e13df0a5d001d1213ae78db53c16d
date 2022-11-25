@@ -1,0 +1,13 @@
+package com.ttt.uimodules;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public final class HeaderModule extends BaseModule{
+
+	public HeaderModule() {
+		super(UiDriverManager.getDriver());
+	}
+	
+	
+	
+}

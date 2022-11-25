@@ -1,0 +1,19 @@
+package com.ttt.uimodules;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public final class AddUserUiModule extends BaseModule{
+	
+	private static final String COMPONENTS_UNIQUE_LOCATOR_STR = "//label[text()='%s']/ancestor::div[contains(@class,'oxd-input-group')]";
+	
+	public AddUserUiModule() {
+		super(UiDriverManager.getDriver());
+	}
+	
+	private String formatCompntUniQueLocator(String value) {
+		return String.format(COMPONENTS_UNIQUE_LOCATOR_STR, value);
+	}
+	
+	public void
+	
+}

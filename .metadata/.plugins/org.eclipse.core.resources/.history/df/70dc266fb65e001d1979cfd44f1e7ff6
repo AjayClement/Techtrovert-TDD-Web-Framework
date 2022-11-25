@@ -1,0 +1,11 @@
+package com.ttt.uicomponents;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public final class OxdButtonComponent extends BaseComponent{
+	
+	public OxdButtonComponent() {
+		super(UiDriverManager.getDriver());
+	}
+
+}

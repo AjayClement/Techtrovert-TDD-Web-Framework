@@ -1,0 +1,36 @@
+package com.ttt.uiutils;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public final class UiElementReusables {
+
+	private UiElementReusables() {
+		
+	}
+	
+	public static void clickElementBy(By locator) {
+		UiWaitHandler.waitUntilClickable(locator,true).click();
+	}
+	
+	public static void sendKeysElementBy(By locator, String value) {
+		UiWaitHandler.waitUntilElementVisible(locator, true)
+		.sendKeys(value);
+	}
+	
+	public static WebElement getElementBy(By locator) {
+		return UiWaitHandler.waitUntilElementVisible(locator, false);
+	}
+	
+	public static void jsClickElementBy(By locator, WebDriver driver) {
+	      
+		((JavascriptExecutor)driver
+				).executeScript("arguments[0].click()", UiWaitHandler.waitUntilClickable(locator, true));
+	}
+	
+	public static void slowAutoCompleteSendKeys(By locator, String value) {
+		WebElement ele = UiWaitHandler.waitUntilElementVisible(locator, true);
+	}
+}

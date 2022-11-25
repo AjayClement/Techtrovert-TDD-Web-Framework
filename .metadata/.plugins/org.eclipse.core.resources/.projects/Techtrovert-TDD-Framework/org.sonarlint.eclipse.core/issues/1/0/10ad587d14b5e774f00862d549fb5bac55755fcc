@@ -1,0 +1,10 @@
+
+v
+java:S1128"CRemove this unused import 'org.openqa.selenium.JavascriptExecutor'.(Ë‚«»8Î’è—Å0H°RMINORZ
+CODE_SMELL
+m
+java:S1128":Remove this unused import 'org.openqa.selenium.WebDriver'.(ñšÿÀ8Î’è—Å0H²RMINORZ
+CODE_SMELL
+i
+java:S1068"1Remove this unused "parentElement" private field.(ð©ÍÔøÿÿÿÿ8Î’è—Å0H´RMAJORZ
+CODE_SMELL

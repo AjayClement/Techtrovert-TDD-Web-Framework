@@ -1,0 +1,23 @@
+package com.ttt.uicomponents;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public final class OxdButtonComponent extends BaseComponent{
+	private WebElement parentElement = null;
+	
+	public OxdButtonComponent() {
+		super(UiDriverManager.getDriver());
+		parentElement = getParentElement(By.cssSelector("oxd-button"));
+	}
+	
+	public void clickButton(String buttonText) {
+		
+		
+	}
+
+}

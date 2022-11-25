@@ -1,0 +1,62 @@
+package com.ttt.uimodules;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
+
+import com.ttt.driverutils.DriverManager;
+import com.ttt.enums.PageName;
+import com.ttt.orangehrmpages.BasePage;
+import com.ttt.orangehrmpages.IPageMarker;
+import com.ttt.uiutils.UiElementReusables;
+
+public class LeftNavBarUiModule extends BaseModule{
+
+	public LeftNavBarUiModule() {
+		super(DriverManager.getDriver());
+	}
+	
+	String menuNavLinkLocStr = "//span[text()='%s']"; 
+	
+	public IPageMarker navigate(PageName navigateTo) {
+		
+		switch (navigateTo) {
+		   case ADMIN:
+			 UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Admin"))); 
+			     return PageName.ADMIN.getPageObject();
+		   case PIM:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "PIM"))); 
+				 return PageName.PIM.getPageObject();
+		   case PERFORMANCE:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Performance")));
+				 return PageName.PERFORMANCE.getPageObject();
+		   case LEAVE:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Leave")));
+				 return PageName.LEAVE.getPageObject();
+		   case DASHBOARD:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Dashboard")));
+				 return PageName.DASHBOARD.getPageObject();
+		   case DIRECTORY:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Directory")));
+				 return PageName.DIRECTORY.getPageObject();
+		   case MAINTENANCE:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Maintenance")));
+				 return PageName.MAINTENANCE.getPageObject();
+		   case MY_INFO:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "My Info")));
+				 return PageName.MY_INFO.getPageObject();
+		   case TIME:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Time"))); 
+				 return PageName.TIME.getPageObject();
+		   case RECRUITMENT:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Recruitment")));
+				 return PageName.RECRUITMENT.getPageObject();
+		   case BUZZ:
+			   UiElementReusables.clickElementBy(By.xpath(String.format(menuNavLinkLocStr, "Buzz"))); 
+				 return PageName.BUZZ.getPageObject();
+		   default:
+			     return null;
+		}
+		 
+	}
+	
+}

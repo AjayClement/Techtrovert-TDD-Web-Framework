@@ -1,0 +1,28 @@
+package com.ttt.orangehrmpages;
+
+import org.openqa.selenium.By;
+import com.ttt.driverutils.UiDriverManager;
+import com.ttt.enums.PageName;
+import com.ttt.uimodules.HeaderModule;
+import com.ttt.uimodules.LeftNavBarUiModule;
+import com.ttt.uiutils.UiElementReusables;
+
+public final class CommonPage extends BasePage{
+	
+	private HeaderUiModule headerModule;
+	private LeftNavBarUiModule
+	
+	public CommonPage() {
+		super(UiDriverManager.getDriver());
+		headerModule = new HeaderModule();
+	}
+	
+	public LoginPage logout() {
+		return headerModule.clcikUserAccountDrpDwn().clickLogout();
+	}
+	
+	public IPageMarker navigateUsingLeftnavBar(PageName nameOfPage) {
+	     	
+	}
+	
+}

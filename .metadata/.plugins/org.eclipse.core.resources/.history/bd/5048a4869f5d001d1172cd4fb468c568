@@ -1,0 +1,19 @@
+package com.ttt.commonutils;
+
+import java.util.HashMap;
+
+import com.ttt.enums.Context;
+import com.ttt.enums.PageName;
+
+public class PageNameContext {
+    private HashMap<Context, PageName> pageContext = new HashMap();
+    
+    
+    public void setPageContext(Context key, PageName value) {
+    	 pageContext.put(key, value);
+    }
+    
+    public PageName getPageContext(Context key) {
+    	return pageContext.get(key);
+    }
+}

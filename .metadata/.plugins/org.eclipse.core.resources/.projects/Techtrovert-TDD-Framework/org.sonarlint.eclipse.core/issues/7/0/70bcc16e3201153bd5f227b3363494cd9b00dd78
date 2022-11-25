@@ -1,0 +1,28 @@
+
+}	java:S112G"FDefine and throw a dedicated exception instead of using a generic one.(Ç´»µıÿÿÿÿ8ãÂÉÄ0HåRMAJORZ
+CODE_SMELL
+‰
+java:S11920"NDefine a constant instead of duplicating this literal "
+ClassName : " 5 times.(Ûû—Œùÿÿÿÿ8‹ù¯ÆÄ0HæRCRITICALZ
+CODE_SMELL
+„
+java:S1192."NDefine a constant instead of duplicating this literal "
+Line.No   : " 5 times.(¦ƒ©÷8‹ù¯ÆÄ0HìRCRITICALZ
+CODE_SMELL
+}	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(Ç´»µıÿÿÿÿ8¤ôÏÄÄ0HòRMAJORZ
+CODE_SMELL
+°
+java:S1192`"uDefine a constant instead of duplicating this literal "
+Exception Occured- please check the Locator and DOM" 3 times.(ÃÚÍíıÿÿÿÿ8è©ÊÄ0HóRCRITICALZ
+CODE_SMELL
+·
+java:S1192d"|Define a constant instead of duplicating this literal "
+element   : ExpectedConditions.visibilityOfElementLocated(" 3 times.(ù‚Şÿÿÿÿÿ8Çª²àÄ0H÷RCRITICALZ
+CODE_SMELL
+‚
+java:S1128"PRemove this unused import 'org.openqa.selenium.ElementNotInteractableException'.(Åµôg8—Ö ÊÄ0HûRMINORZ
+CODE_SMELL
+‰
+java:S1192/"NDefine a constant instead of duplicating this literal "
+MethodName: " 5 times.(Å¬Õûÿÿÿÿ8‹ù¯ÆÄ0HıRCRITICALZ
+CODE_SMELL

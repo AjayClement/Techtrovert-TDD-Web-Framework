@@ -1,0 +1,59 @@
+package com.ttt.orangehrmtests;
+
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.assertj.core.api.Assertions;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.ttt.enums.PageName;
+import com.ttt.orangehrmpages.LoginPage;
+import com.ttt.runconstants.RunConstants;
+import com.ttt.uiutils.UiWaitHandler;
+
+public class OHRMLoginLogoutTest extends BaseTest{
+ 	
+	private OHRMLoginLogoutTest() {
+		
+	}
+	
+	
+	@Test(dataProvider = "getData")
+	public void loginLogOut(String username, String password) {
+		
+	 Assertions.assertThat(
+			 new LoginPage().login(username, password)
+		      .logout().checkLoginTitle()
+		      ).isTrue();	
+	}
+	
+	@DataProvider
+	public Object[][] getData() throws IOException {
+	    
+		FileInputStream file = new FileInputStream(new File("C:\\Ajay\\Automation-Frameworks\\Techtrovert-TDD\\Techtrovert-TDD-Framework\\src\\test\\resources\\TestDataSheet.xlsx"));
+		XSSFWorkbook excel = new XSSFWorkbook(file);
+		XSSFSheet sheet = excel.getSheet("TestSheet1");
+		
+		int totalRows = sheet.getLastRowNum();
+		int totalColumns = sheet.getRow(0).getLastCellNum();
+			
+		Object[][] data =  new Object[totalRows][totalColumns-1];
+		
+		for(int i=1; i<=totalRows;i++) {
+			for(int j=2;j<=totalColumns;j++) {
+				data[i-1][j-1]=sheet.getRow(i).getCell(j).getStringCellValue();
+			   
+			}
+		}
+	    	
+	   return data;
+	}
+	
+	
+}

@@ -1,0 +1,11 @@
+package com.ttt.uimodules;
+
+import com.ttt.driverutils.DriverManager;
+
+public final class AddUserUiModule{
+   
+	public AddUserUiModule() {
+		super(DriverManager.getDriver());
+	}
+	
+}

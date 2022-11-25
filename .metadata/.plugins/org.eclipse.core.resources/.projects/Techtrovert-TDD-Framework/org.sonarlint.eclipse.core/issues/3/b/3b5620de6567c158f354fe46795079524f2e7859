@@ -1,0 +1,13 @@
+
+g
+java:S3740	"/Provide the parametrized type for this generic.(†Ú´Ãÿÿÿÿÿ8ì¸îÁÄ0Hö
+RMAJORZ
+CODE_SMELL
+W
+java:S1640	"Convert this Map to an EnumMap.(†Ú´Ãÿÿÿÿÿ8ì¸îÁÄ0Hõ
+RMINORZ
+CODE_SMELL
+f
+java:S1128"3Remove this unused import 'com.ttt.enums.PageName'.(ê ’½8¡þØÝÄ0Hÿ
+RMINORZ
+CODE_SMELL

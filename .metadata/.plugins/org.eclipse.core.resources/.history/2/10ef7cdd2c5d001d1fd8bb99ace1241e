@@ -1,0 +1,24 @@
+package com.ttt.uicomponents;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.ttt.driverutils.UiDriverManager;
+
+public class OxdSelectWrapperComponent extends BaseComponent{
+
+	
+	
+	private WebElement parentElement = null;
+	
+	public OxdSelectWrapperComponent() {
+		super(UiDriverManager.getDriver());
+		parentElement = getParentElement(By.className("oxd-select-wrapper"));
+	}
+	
+	public void selectOptionWithValueText(String value) {
+		parentElement.click();
+		parentElement.findElement(parentLocator)
+	}
+	
+}

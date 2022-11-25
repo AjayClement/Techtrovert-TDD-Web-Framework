@@ -1,0 +1,5 @@
+package com.ttt.enums;
+
+public enum TestContext {
+
+}
